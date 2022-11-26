@@ -44,7 +44,7 @@ sed -i -e "s/<sharedImageGalName>/$sigName/g" image-template.json
 sed -i -e "s/<region1>/$location/g" image-template.json
 sed -i -e "s/<region2>/$additionalregion/g" image-template.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" image-template.json
-sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" image-template.json
+sed -i -e "s/<imgBuilderId>/$imgBuilderId/g" image-template.json
 
 echo "Submit the configuration to image builder service, please wait ..."
 az resource create --resource-group $sigResourceGroup --properties @image-template.json --is-full-object --resource-type Microsoft.VirtualMachineImages/imageTemplates -n image-template-01 -l $location
